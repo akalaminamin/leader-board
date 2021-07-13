@@ -88,18 +88,18 @@ hr {
 /* =============================== Course area style ===================================== */
 
 #course .courses {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
 }
 #course .courses .course-item {
-  width: 252px;
+  /* width: 252px; */
   padding: 13px;
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 #course .courses .course-item img {
-  width: 224px;
+  width: 100%;
   height: 104px;
 }
 #course .course-item .course-details h2 {
@@ -140,7 +140,7 @@ hr {
 /* ========================== Responsive css apply ================================== */
 
 /* ================ Mobile Device =========== */
-@media only screen and (max-width: 688px) {
+@media only screen and (max-width: 668px) {
   .container {
     width: 100%;
   }
@@ -151,25 +151,32 @@ hr {
   .player {
     flex-direction: column;
   }
-  .courses {
-    flex-direction: column;
-    align-items: center;
+  #course .courses {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #course .courses img{
+    object-fit: cover;
+    border-radius: 10px;
+    width: 100%;
   }
   #course .course-item {
     margin-bottom: 15px;
   }
 }
-@media only screen and (min-width: 689px) and (max-width: 991px) {
+/* ================ Tablet Device =========== */
+@media only screen and (min-width: 669px) and (max-width: 991px) {
   .container {
     width: 100%;
   }
-  #top-area .players,
-  #top-area .blogs {
+  #course .courses {
     grid-template-columns: repeat(2, 1fr);
   }
-  #course .courses {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: 20px;
+  #course .courses img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  #course .course-item {
+    margin-bottom: 15px;
   }
 }
